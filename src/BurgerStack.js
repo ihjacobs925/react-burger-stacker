@@ -1,9 +1,9 @@
 import React from 'react';
 import Ingredient from './Ingredient';
 
-function BurgerStack() {
+function BurgerStack(props) {
   
-  let bits = this.props.burgerBits.map(bit => {
+  let bits = props.burgerBits.map(bit => {
     return <li><Ingredient ingredient={bit} /></li>
   })
   return (

@@ -3,23 +3,24 @@ import './App.css'
 import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
 
-    const ingredients = [
-      {name: 'Kaiser Bun', color: 'saddlebrown'},
-      {name: 'Sesame Bun', color: 'sandybrown'},
-      {name: 'Gluten Free Bun', color: 'peru'},
-      {name: 'Lettuce Wrap', color: 'olivedrab'},
-      {name: 'Beef Patty', color: '#3F250B'},
-      {name: 'Soy Patty', color: '#3F250B'},
-      {name: 'Black Bean Patty', color: '#3F250B'},
-      {name: 'Chicken Patty', color: 'burlywood'},
-      {name: 'Lettuce', color: 'lawngreen'},
-      {name: 'Tomato', color: 'tomato'},
-      {name: 'Bacon', color: 'maroon'},
-      {name: 'Onion', color: 'lightyellow'}
-    ]
+  
     function App() {
       // useState
       const [burgerbits, setBurgerbits] = useState([]);
+      const [ingredients, setIngredients] = useState([
+        {name: 'Kaiser Bun', color: 'saddlebrown'},
+        {name: 'Sesame Bun', color: 'sandybrown'},
+        {name: 'Gluten Free Bun', color: 'peru'},
+        {name: 'Lettuce Wrap', color: 'olivedrab'},
+        {name: 'Beef Patty', color: '#3F250B'},
+        {name: 'Soy Patty', color: '#3F250B'},
+        {name: 'Black Bean Patty', color: '#3F250B'},
+        {name: 'Chicken Patty', color: 'burlywood'},
+        {name: 'Lettuce', color: 'lawngreen'},
+        {name: 'Tomato', color: 'tomato'},
+        {name: 'Bacon', color: 'maroon'},
+        {name: 'Onion', color: 'lightyellow'}
+      ])
       
       // functions 
         //add ingredient 
@@ -35,8 +36,8 @@ import BurgerPane from './BurgerPane'
         <div>
         <h1>Burger Stacker</h1>
       <main className='panes'>
-        <IngredientList ingredients={ingredients} addIngredient={addIngredient} />
-        <BurgerPane burgerBits={burgerbits} clearBurger={clearBurger} />
+        <IngredientList ingredients={ingredients} add={addIngredient} />
+        <BurgerPane burgerBits={burgerbits} clear={clearBurger} />
       </main>
         </div>
       )

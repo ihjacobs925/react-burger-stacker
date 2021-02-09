@@ -1,12 +1,12 @@
 import React from 'react'
 import Ingredient from './Ingredient'
 
-const IngredientList = (props) => {
+const IngredientList = props => {
 
-    let ingredients = props.ingredients.map(ingredient => {
+    let ingredients = props.ingredients.map(elem => {
        
        return <li onClick={props.add}>
-            <Ingredient ingredient={ingredient} />
+            <Ingredient ingredient={elem} />
         </li>
     })
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 function ClearBurger(props){
   return (
-    <button onClick={props.clearBurger}>Clear Burger</button>
+    <button onClick={props.clear}>Clear Burger</button>
   )
 
 }
