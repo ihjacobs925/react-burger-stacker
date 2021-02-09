@@ -8,3 +8,4 @@ class ClearBurger extends Component {
 }
 
 export default ClearBurger
+//to func
