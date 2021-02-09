@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
 
-class App extends Component {
-  state = {
-    ingredients: [
+    const ingredients = [
       {name: 'Kaiser Bun', color: 'saddlebrown'},
       {name: 'Sesame Bun', color: 'sandybrown'},
       {name: 'Gluten Free Bun', color: 'peru'},
@@ -18,55 +16,74 @@ class App extends Component {
       {name: 'Tomato', color: 'tomato'},
       {name: 'Bacon', color: 'maroon'},
       {name: 'Onion', color: 'lightyellow'}
-    ],
-    burgerBits: []
-  }
+    ]
+    function App() {
+      // useState
+      const [burgerbits, setBurgerbits] = useState([]);
+      
+      // functions 
+        //add ingredient 
+      const addIngredient = (e) => {
+        setBurgerbits([{name: e.target.innerText, color: e.target.style.backgroundColor}, ...burgerbits]);
+      }
+        // clear incredients
+      const clearBurger = () => {
+        setBurgerbits([]);
+      }
+      
+      return (
+        <div>
+        <h1>Burger Stacker</h1>
+      <main className='panes'>
+        <IngredientList ingredients={ingredients} addIngredient={addIngredient} />
+        <BurgerPane burgerBits={burgerbits} clearBurger={clearBurger} />
+      </main>
+        </div>
+      )
+    };
+
 
   // Add an ingredient
-  addToStack = (e) => {
-    let name = e.target.innerText
-    let color = e.target.style.backgroundColor
-    // ------ splice
-    // let tempArray = this.state.burgerBits
-    // tempArray.splice(0, 0, {name, color})
-    // this.setState({
-    //   burgerBits: tempArray
-    // })
-    // ------ unshift
-    // let tempArray = this.state.burgerBits
-    // tempArray.unshift({name, color})
-    // this.setState({
-    //   burgerBits: tempArray
-    // })
-    // ------ spread operator
-    this.setState({
-      burgerBits: [{name, color}, ...this.state.burgerBits]
-    })
-  }
+//   addToStack = (e) => {
+//     let name = e.target.innerText
+//     let color = e.target.style.backgroundColor
+//     // ------ splice
+//     // let tempArray = this.state.burgerBits
+//     // tempArray.splice(0, 0, {name, color})
+//     // this.setState({
+//     //   burgerBits: tempArray
+//     // })
+//     // ------ unshift
+//     // let tempArray = this.state.burgerBits
+//     // tempArray.unshift({name, color})
+//     // this.setState({
+//     //   burgerBits: tempArray
+//     // })
+//     // ------ spread operator
+//     this.setState({
+//       burgerBits: [{name, color}, ...this.state.burgerBits]
+//     })
+//   }
 
-  // Clear da burger
-  clearBurger = () => {
-    console.log('No burger for you')
-    this.setState({ burgerBits: [] })
-  }
+//   // Clear da burger
 
-  render() {
-    return (
-      <main>
-        <h1>Burger Stacker</h1>
-        <div className='panes'>
-          <IngredientList 
-            ingredients={this.state.ingredients} 
-            add={this.addToStack} 
-          />
-          <BurgerPane 
-            burgerBits={this.state.burgerBits} 
-            clear={this.clearBurger}
-          />
-        </div>
-      </main>
-    )
-  }
-}
+//   render() {
+//     return (
+//       <main>
+//         <h1>Burger Stacker</h1>
+//         <div className='panes'>
+//           <IngredientList 
+//             ingredients={this.state.ingredients} 
+//             add={this.addToStack} 
+//           />
+//           <BurgerPane 
+//             burgerBits={this.state.burgerBits} 
+//             clear={this.clearBurger}
+//           />
+//         </div>
+//       </main>
+//     )
+//   }
+// }
 
-export default App
+export default App;

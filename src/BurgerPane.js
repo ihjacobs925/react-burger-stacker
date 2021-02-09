@@ -1,18 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react'
 import BurgerStack from './BurgerStack'
-import Ingredient from './Ingredient'
 import ClearBurger from './ClearBurger'
 
-class BurgerPane extends Component {
-    render() {
-        return (
-            <section className='pane'>
-                <h1>BURGER PANE</h1>
-                <BurgerStack burgerBits={this.props.burgerBits}/>
-                <ClearBurger clear={this.props.clear} />
-            </section>
-        )
-    }
+function BurgerPane (props) {
+    return (
+        <section className='pane'>
+            <h1>BURGER PANE</h1>
+            <BurgerStack burgerBits={props.burgerBits} />
+            <ClearBurger clearBurger={props.clearBurger} />
+        </section>
+    )
 }
 
-export default BurgerPane
+// class BurgerPane extends React.Component {
+//     render() {
+//         return (
+//             <section className='pane'>
+//                 <h1>BURGER PANE</h1>
+//                 <BurgerStack burgerBits={this.props.burgerBits}/>
+//                 <ClearBurger clear={this.props.clear} />
+//             </section>
+//         )
+//     }
+// }
+
+export default BurgerPane;
